@@ -15,7 +15,7 @@ function CreateEmployee() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/employees', formData, {
+      await axios.post(`${import.meta.env.VITE_BASE_URL}/api/employees`, formData, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       toast.success('Employee created successfully');

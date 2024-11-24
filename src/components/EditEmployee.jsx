@@ -19,7 +19,7 @@ function EditEmployee() {
 
   const fetchEmployee = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/employees/${id}`);
+      const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/employees/${id}`);
       setFormData(response.data);
     } catch (error) {
       toast.error('Failed to fetch employee details');
@@ -30,7 +30,7 @@ function EditEmployee() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/employees/${id}`, formData, {
+      await axios.put(`${import.meta.env.VITE_BASE_URL}/api/employees/${id}`, formData, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       toast.success('Employee updated successfully');

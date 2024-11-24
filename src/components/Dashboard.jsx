@@ -13,7 +13,7 @@ function Dashboard() {
 
   const fetchEmployees = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/employees', {
+      const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/employees`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setEmployees(response.data);
@@ -25,7 +25,7 @@ function Dashboard() {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this employee?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/employees/${id}`);
+        await axios.delete(`${import.meta.env.VITE_BASE_URL}/api/employees/${id}`);
         toast.success('Employee deleted successfully');
         fetchEmployees();
       } catch (error) {

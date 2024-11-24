@@ -13,7 +13,7 @@ function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/signin', formData);
+      const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/auth/signin`, formData);
       localStorage.setItem('token', response.data.token);
       toast.success('Sign in successful!');
       navigate('/dashboard');
