@@ -6,7 +6,7 @@ This repository contains the code for the MERN stack machine test.
 
 ## Live Demo
 
-[Live URL](https://your-live-url.com)
+[Live URL](https://godson-dealsdray.netlify.app/signin)
 
 ---
 
